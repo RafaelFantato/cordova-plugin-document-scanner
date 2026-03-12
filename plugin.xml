@@ -24,16 +24,23 @@
     <!-- Avoid FileProvider merge conflicts with scanlibrary on cordova-android 13+ -->
     <edit-config file="app/src/main/AndroidManifest.xml"
                  target="/manifest/application/provider[@android:name='androidx.core.content.FileProvider']"
-                 mode="merge">
+                 mode="overwrite">
       <provider xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:name="androidx.core.content.FileProvider"
                 android:authorities="${applicationId}.cdv.core.file.provider"
                 tools:replace="android:authorities">
-        <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
-                   android:resource="@xml/cdv_core_file_provider_paths"
-                   tools:replace="android:resource" />
       </provider>
+    </edit-config>
+
+    <edit-config file="app/src/main/AndroidManifest.xml"
+                 target="/manifest/application/provider[@android:name='androidx.core.content.FileProvider']/meta-data[@android:name='android.support.FILE_PROVIDER_PATHS']"
+                 mode="overwrite">
+      <meta-data xmlns:android="http://schemas.android.com/apk/res/android"
+                 xmlns:tools="http://schemas.android.com/tools"
+                 android:name="android.support.FILE_PROVIDER_PATHS"
+                 android:resource="@xml/cdv_core_file_provider_paths"
+                 tools:replace="android:resource" />
     </edit-config>
 
     <framework src="src/android/build.gradle" custom="true" type="gradleReference"/>

@@ -20,6 +20,22 @@
 
     <source-file src="src/android/Scan.java" target-dir="src/com/neutrinos/plugin/" />
     <source-file src="src/android/FileHelper.java" target-dir="src/com/neutrinos/plugin/" />
+
+    <!-- Avoid FileProvider merge conflicts with scanlibrary on cordova-android 13+ -->
+    <edit-config file="app/src/main/AndroidManifest.xml"
+                 target="/manifest/application/provider[@android:name='androidx.core.content.FileProvider']"
+                 mode="merge">
+      <provider xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:name="androidx.core.content.FileProvider"
+                android:authorities="${applicationId}.cdv.core.file.provider"
+                tools:replace="android:authorities">
+        <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                   android:resource="@xml/cdv_core_file_provider_paths"
+                   tools:replace="android:resource" />
+      </provider>
+    </edit-config>
+
     <framework src="src/android/build.gradle" custom="true" type="gradleReference"/>
   </platform>
 

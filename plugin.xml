@@ -8,6 +8,7 @@
   <asset src="www/scan.js" target="js/scan.js"/>
   <js-module src="www/scan.js" name="scan">
     <clobbers target="scan" />
+    <clobbers target="cordova.plugins.scan" />
   </js-module>
 
 

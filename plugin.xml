@@ -40,9 +40,12 @@
       <meta-data xmlns:android="http://schemas.android.com/apk/res/android"
                  xmlns:tools="http://schemas.android.com/tools"
                  android:name="android.support.FILE_PROVIDER_PATHS"
-                 android:resource="@xml/cdv_core_file_provider_paths"
+                 android:resource="@xml/scan_document_provider_paths"
                  tools:replace="android:resource" />
     </edit-config>
+
+    <!-- Combined FileProvider paths XML (covers Cordova + scanlibrary paths) -->
+    <resource-file src="res/xml/scan_document_provider_paths.xml" target="res/xml/scan_document_provider_paths.xml" />
 
     <framework src="src/android/build.gradle" custom="true" type="gradleReference"/>
   </platform>

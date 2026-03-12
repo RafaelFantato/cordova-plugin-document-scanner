@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Combined FileProvider paths for cordova-plugin-document-scanner.
+  Covers paths needed by both cordova-plugin-file (cdv.core.file.provider)
+  and scanlibrary (com.scanlibrary.provider), since both authorities share
+  a single FileProvider instance in the merged AndroidManifest.
+-->
+<paths>
+  <!-- Internal app storage -->
+  <files-path name="files" path="." />
+  <cache-path name="cache" path="." />
+  <!-- External storage root (covers scanlibrary camera temp files) -->
+  <external-path name="external" path="." />
+  <!-- External app-specific storage -->
+  <external-files-path name="external_files" path="." />
+  <!-- External app cache (scanlibrary writes here: .../cache/scanSample/) -->
+  <external-cache-path name="external_cache" path="." />
+</paths>

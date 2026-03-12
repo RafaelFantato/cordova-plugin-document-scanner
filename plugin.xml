@@ -29,7 +29,7 @@
       <provider xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:tools="http://schemas.android.com/tools"
                 android:name="androidx.core.content.FileProvider"
-                android:authorities="${applicationId}.cdv.core.file.provider"
+                android:authorities="${applicationId}.cdv.core.file.provider;${applicationId}.com.scanlibrary.provider"
                 tools:replace="android:authorities">
       </provider>
     </edit-config>
